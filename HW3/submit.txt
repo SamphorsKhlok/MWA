@@ -1,0 +1,55 @@
+//question 1
+const {Resolver} = require('dns');
+const resolver = new Resolver();
+//resolver.setServers('4.4.4.4'); // mum network do not allow public google dns
+resolver.resolve4('www.mum.edu',(err,addresses)=>{
+    if(err) throw err;
+    console.log(addresses);
+});
+
+
+//question2
+const http = require('http');
+const fs = require('fs');
+const server = http.createServer((req, res)=>{
+    // fast method
+    var src = fs.createReadStream('./Chicago.jpg').pipe(res);
+
+    //the slow method,
+    // fs.readFile('./Chicago.jpg',(err, data)=>{
+    //     if(err) throw err;
+    //     res.end(data);
+    // });
+}).listen(8080, '127.0.0.1');
+
+
+//question3
+const EventEmitter = require('events');
+class Clock extends EventEmitter {
+    constructor(){
+        super();
+    }
+
+    tick(){
+        setInterval((()=> this.emit('tick')), 1000);
+    }
+}
+
+const myClock = new Clock();
+
+myClock.on('tick',function () {
+    console.log("woo hoo");
+});
+
+myClock.tick();
+
+
+//question4
+const fs = require('fs');
+const zlib = require('zlib');
+
+//read from a zip file
+const gUnzip = zlib.createGunzip();
+var zipFile = fs.createReadStream(__dirname + '/zipFile.jpg.gz');
+var unzipFile =  fs.createWriteStream(__dirname + '/fileUnzip.jpg');
+zipFile.pipe(gUnzip).pipe(unzipFile);

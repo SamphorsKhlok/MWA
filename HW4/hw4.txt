@@ -1,0 +1,98 @@
+//Q1
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
+const server = http.createServer();
+server.on('request',(req,res)=>{
+    console.log(url.parse(req.url,true));
+    var urlObj = url.parse(req.url,true);
+    if(urlObj.query.url){
+        var file = fs.createReadStream('./'+urlObj.query.url);
+        file.pipe(res);
+    }else{
+        res.end("path not found");
+    }
+
+}).listen(4000,'127.0.0.1');
+
+
+//Q1 - part2
+const http = require('http');
+const url = require('url');
+const {fork} = require('child_process');
+const server = http.createServer();
+
+var fs = require('fs');
+
+server.on('request',(req,res)=>{
+    //console.log(url.parse(req.url,true));
+    var urlObj = url.parse(req.url,true);
+    if(urlObj.query.url){
+        const childProcess = fork('forkStream.js');
+        childProcess.send(urlObj.query.url);
+        childProcess.on('message', (data)=> res.end(data));
+    }else{
+        res.end("path not found");
+    }
+
+}).listen(4000,'127.0.0.1');
+
+//forkStream.js
+var fs = require('fs');
+process.on('message', (path)=>{
+    //console.log(path);
+    var file = fs.readFile('./'+path,'UTF-8', (error, data)=>{
+        if(error) throw error;
+        process.send(data);
+        //or use process.send(data.toString()); if UTF-8 is not used
+    });
+
+})
+
+
+//Q2 - part1
+var os = require('os');
+
+function checkSystem(){
+    return new Promise(function(resolve,reject){
+        //2Gb = 2097152Kb
+        if(os.freemem() < 2097152){
+            reject("This app needs at least 2 GB of RAM");
+        }else if(os.cpus().length < 2){
+            reject("Processor is not supported");
+        }else{
+            resolve("System is checked successfully.");
+        }
+    });
+}
+
+checkSystem()
+    .then((data)=> console.log(data))
+    .catch((error)=> console.log(error));
+console.log('checking your system ...');
+
+
+//Q2 - part 2
+//TODO: rewrite the function with observable
+var os = require('os');
+const Rx = require('@reactivex/rxjs');
+
+var source = Rx.Observable.create(function (observer) {
+    observer.next('checking your system ...');
+    if(os.freemem() < 2097152){
+        observer.error("This app needs at least 2 GB of RAM");
+    }else if(os.cpus().length < 2){
+        observer.error("Processor is not supported");
+    }else{
+        observer.complete();
+    }
+});
+
+var subscription = source.subscribe(
+    (data)=> console.log(data),
+    (error)=> console.error(error),
+    ()=> console.info("System is checked successfully.")
+
+);
+
+subscription.unsubscribe();
