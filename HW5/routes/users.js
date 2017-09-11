@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var fetch = require('node-fetch');
-var fetchPromise = fetch('https://jsonplaceholder.typicode.com/users');
+var link = 'https://jsonplaceholder.typicode.com/users';
 
 var Rx = require('rxjs/Rx');
 
@@ -12,25 +12,28 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/promise', function(req, res, next) {
+    var fetchPromise = fetch(link);
     fetchPromise.then(data => data.json())
         .then(data => res.render('users', { title:'users', result: data}))
         .catch(data=>console.error(error));
 });
 
 router.get('/observable', function(req, res, next) {
+    var fetchPromise = fetch(link);
     Rx.Observable.fromPromise(fetchPromise)
-        .map(data=> data.json())
-        .subscribe(data=> res.send(data));
+        .flatMap(data=> data.json())
+        .subscribe(data=> res.render('users', { title:'users', result: data}));
 });
 
 //work with ES7
 router.get('/async',function(req, res, next){
-    fetchingResult(req);
+    fetchingResult();
 });
 
 async function fetchingResult(){
+    var fetchPromise = fetch(link);
     try{
-        let result = await fetchPromise;
+        var result = await fetchPromise;
         result.then(data => data.json())
             .then(data => res.render('users', { title:'users', result: data}))
             .catch(data=> console.error(error));

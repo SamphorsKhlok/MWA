@@ -4,7 +4,7 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('newsletter', { title: 'Newsletter Page', csrftoken:  req.csrfToken()});
+  res.render('newsletter', { title: 'Newsletter Page', csrftoken: req.csrfToken()});
 });
 
 router.post('/addEmail', function(req, res, next) {
