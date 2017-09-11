@@ -27,16 +27,14 @@ router.get('/observable', function(req, res, next) {
 
 //work with ES7
 router.get('/async',function(req, res, next){
-    fetchingResult();
+    fetchingResult(req,res);
 });
 
-async function fetchingResult(){
-    var fetchPromise = fetch(link);
+async function fetchingResult(req,res){
     try{
-        var result = await fetchPromise;
-        result.then(data => data.json())
-            .then(data => res.render('users', { title:'users', result: data}))
-            .catch(data=> console.error(error));
+        var promise = fetch(link).then(data=> data.json());
+        var result = await promise;
+        res.render('users', { title:'users', result: result});
     }catch(error){
         console.error(error);
     }

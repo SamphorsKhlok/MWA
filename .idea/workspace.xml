@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50e7599-b9c7-4ffa-86f1-4f0cbebc2d81" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/www.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/HW5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW5/routes/users.js" afterPath="$PROJECT_DIR$/HW5/routes/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HW6/routes/newsletter.js" afterPath="$PROJECT_DIR$/HW6/routes/newsletter.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,8 +80,18 @@
       <file leaf-file-name="users.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HW5/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            <state relative-caret-position="284">
+              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HW5/views/users.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -91,16 +99,6 @@
       </file>
       <file leaf-file-name="error.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HW6/views/error.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HW6/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -131,12 +129,12 @@
         <option value="$PROJECT_DIR$/HW5/bin/www" />
         <option value="$PROJECT_DIR$/HW5/views/error.ejs" />
         <option value="$PROJECT_DIR$/HW5/views/index.ejs" />
-        <option value="$PROJECT_DIR$/HW5/views/users.ejs" />
         <option value="$PROJECT_DIR$/HW5/app.js" />
         <option value="$PROJECT_DIR$/HW6/views/thanks.ejs" />
         <option value="$PROJECT_DIR$/HW6/views/newsletter.ejs" />
         <option value="$PROJECT_DIR$/HW6/app.js" />
         <option value="$PROJECT_DIR$/HW6/routes/newsletter.js" />
+        <option value="$PROJECT_DIR$/HW5/views/users.ejs" />
         <option value="$PROJECT_DIR$/HW5/routes/users.js" />
       </list>
     </option>
@@ -194,7 +192,19 @@
             <path>
               <item name="MWA" type="b2602c69:ProjectViewProjectNode" />
               <item name="MWA" type="462c0819:PsiDirectoryNode" />
+              <item name="HW5" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MWA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MWA" type="462c0819:PsiDirectoryNode" />
               <item name="HW6" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MWA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MWA" type="462c0819:PsiDirectoryNode" />
+              <item name="HW6" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -277,12 +287,12 @@
       <updated>1505072498406</updated>
       <workItem from="1505072499887" duration="17994000" />
       <workItem from="1505141653831" duration="2238000" />
-      <workItem from="1505153733694" duration="630000" />
+      <workItem from="1505153733694" duration="3270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20862000" />
+    <option name="totallyTimeSpent" value="23502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -527,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HW5/views/users.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HW5/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -620,10 +623,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HW5/views/users.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HW5/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="35" lean-forward="true" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        <state relative-caret-position="284">
+          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
           <folding />
         </state>
       </provider>
