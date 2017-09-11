@@ -11,6 +11,7 @@ var csrf = require('csurf');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var newsletter = require('./routes/newsletter');
+var thankyou = require('./routes/thankyou');
 
 var app = express();
 
@@ -53,6 +54,7 @@ app.use(function(req,res,next){
 app.use('/', index);
 app.use('/users', users);
 app.use('/newsletter',newsletter);
+app.use('/thankyou',thankyou);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

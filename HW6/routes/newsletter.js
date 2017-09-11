@@ -25,8 +25,8 @@ router.post('/addEmail', function(req, res, next) {
         fs.appendFile('subscribers.txt', email, function (err) {
             next(err);
         });
-
-        res.render('thankyou', { title:'Thanks You Page', email: req.body.email });
+        //res.redirect('/thankyou', { title:'Thanks You Page', email: req.body.email });
+        res.redirect('/thankyou?email='+req.body.email);
     }
 
 });
