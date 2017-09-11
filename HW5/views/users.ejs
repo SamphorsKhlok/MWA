@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <p>The Result is : </p>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Zip code</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Website</th>
+      </tr>
+      <%for(var i = 0; i < result.length ; i++) { %>
+        <tr>
+          <td><%=result[i].id%></td>
+          <td><%=result[i].name%></td>
+          <td><%=result[i].username%></td>
+          <td><%=result[i].email%></td>
+          <td><%=result[i].address.city%></td>
+          <td><%=result[i].address.zipcode%></td>
+          <td><%=result[i].address.geo.lat%></td>
+          <td><%=result[i].address.geo.lng%></td>
+          <td><%=result[i].website%></td>
+        </tr>
+      <%}%>
+    </table>
+  </body>
+</html>
