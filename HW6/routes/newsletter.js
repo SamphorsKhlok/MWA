@@ -1,17 +1,22 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var session = require('express-session');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('newsletter', { title: 'Newsletter Page', csrftoken: req.csrfToken()});
+    req.session.csrfToken = req.csrfToken();
+    res.render('newsletter', { title: 'Newsletter Page', csrftoken: req.session.csrfToken});
 });
 
 router.post('/addEmail', function(req, res, next) {
     req.assert('email','email is required').notEmpty();
+    req.assert('_csrf','token is not valid').notEmpty();
+    //console.log(req.body._csrf);
+    //console.log(req.session.csrfToken);
 
     var errors = req.validationErrors();
-    if(errors){
+    if(errors || req.session.csrfToken != req.body._csrf){
         res.render('error', {
             message: 'field email is required',
             error : {
@@ -20,7 +25,7 @@ router.post('/addEmail', function(req, res, next) {
             }
         } );
     }else{
-        //console.log(req.body);
+        console.log(req.body);
         var email = req.body.email;
         fs.appendFile('subscribers.txt', email, function (err) {
             next(err);
