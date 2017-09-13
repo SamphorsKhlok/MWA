@@ -1,0 +1,12 @@
+//todo replace homework8 with restaurants
+Q1 : db.homework8.find({}).pretty()
+Q2 : db.homework8.find({restaurant_id:{$exists:true},name :{$exists:true},district: {$exists:true},cuisine: {$exists:true}})
+Q3 : db.homework8.find({},{restaurant_id:1,name :1,district: 1,cuisine: 1, _id:0 })
+Q4 : db.homework8.find({},{restaurant_id:1,name :1,district: 1,"address.zipcode": 1, _id:0 })
+Q5 : db.homework8.find({district:"Bronx"})
+Q6 : db.homework8.find({district:"Bronx"}).limit(5)
+Q7 : db.homework8.find({district:"Bronx"}).skip(5).limit(5)
+Q8 : db.homework8.find({"address.coord":{$lt : -95.754168}})
+Q9 : db.homework8.find({cuisine :{$ne:"American"}, "grades.score": {$gt:70}, "address.coord":{$lt:-65.754168}})
+Q10: db.homework8.find({name:{$regex:/^Wil/}},{restaurant_id:1, name:1, district:1, cuisine:1})
+Q11: db.homework8.find({name:{$regex:/ces$/}},{restaurant_id:1, name:1, district:1, cuisine:1})
