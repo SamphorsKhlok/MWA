@@ -25,6 +25,7 @@ router.post('/add', function(req, res, next) {
     var doc = {
         Name: req.body.name,
         Categories: categoryArr,
+
         Latitude: req.body.latitude,
         Longitude: req.body.longitude
     };

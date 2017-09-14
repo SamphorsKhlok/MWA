@@ -3,14 +3,9 @@ var router = express.Router();
 var ObjectId = require('mongodb').ObjectID;
 var url = require('url');
 
-// router.get('/', function(req, res, next) {
-//     res.send('respond with a resource');
-// });
-
-/* GET users listing. */
+// get the selected id to be updated
 router.get('/:id', function(req, res, next) {
     console.log("update");
-    //var urlObj = url.parse(req.url,true);
     var id = req.params.id;
 
     req.db.locations.find({_id:ObjectId(id)}).toArray(function(err, items) {
@@ -39,8 +34,7 @@ router.post('/edit/:id', function(req, res, next) {
         Name: doc.Name,
         Categories: doc.Categories,
         Latitude:doc.Latitude,
-        Longitude:doc.Longitude,
-
+        Longitude:doc.Longitude
     }},(err,doc)=>{
         if(err) throw err;
         console.log("success update " + doc);

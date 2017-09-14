@@ -10,6 +10,7 @@ var mongo = require('mongoskin');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var update = require('./routes/update');
+var search = require('./routes/search');
 
 var app = express();
 
@@ -31,7 +32,7 @@ app.use((req,res,next) =>{
     var db = mongo.db("mongodb://localhost:27017/SamDB", {native_parser:true});
     db.bind('locations');
     req.db = db;
-    //console.log(db);
+    console.log("connection");
     next();
     db.close();
 });
@@ -39,6 +40,7 @@ app.use((req,res,next) =>{
 app.use('/', index);
 app.use('/users', users);
 app.use('/update', update);
+app.use('/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
