@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-2.1.1.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAnDLjklkunI1K-qfIYn_9jWky0q7Sp40&callback=initMap" type="text/javascript"></script>
+    <script src="/javascripts/jquery-gmaps-latlon-picker.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://github.com/wimagguc/jquery-latitude-longitude-picker-gmaps/blob/master/css/jquery-gmaps-latlon-picker.css"/>
+
+</head>
+<body>
+<h1><%= title %></h1>
+<!--<h3>Location Form</h3>-->
+<!--<fieldset class="gllpLatlonPicker" id="custom_id">-->
+    <!--<input type="text" class="gllpSearchField">-->
+    <!--<input type="button" class="gllpSearchButton" value="search">-->
+    <!--<div class="gllpMap">Google Maps</div>-->
+    <!--<input type="hidden" class="gllpLatitude" value="52"/>-->
+    <!--<input type="hidden" class="gllpLongitude" value="1"/>-->
+    <!--<input type="hidden" class="gllpZoom" value="12"/>-->
+<!--</fieldset>-->
+<form action="/add" method="post">
+    <label>Name: <input type="text" name="name"></label><br>
+    <label>Categories: <input type="text" name="categories"></label><br>
+    <label>Latitude: <input type="text" name="latitude"></label><br>
+    <label>Longitude: <input type="text" name="longitude"></label><br>
+    <button type="reset">Clear</button>
+    <button type="submit">Add</button>
+</form>
+<h3>List of All <%=result.length%> locations</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <%for(var i = 0; i < result.length ; i++) { %>
+    <tr>
+        <td><b><%=result[i].Name%></b></td>
+        <td><%=result[i].Categories%></td>
+        <td><%=result[i].Latitude%></td>
+        <td><%=result[i].Longitude%></td>
+        <td><form method="post" action='/update?id=<%=result[i]._id%>'><button>Edit</button></form></td>
+        <td><form method="post" action='/delete?id=<%=result[i]._id%>'><button>Delete</button></form></td>
+    </tr>
+    <%}%>
+</table>
+</body>
+</html>

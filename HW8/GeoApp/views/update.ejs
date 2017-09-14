@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!--<script src="/javascripts/jquery-2.1.1.min.js"></script>-->
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAnDLjklkunI1K-qfIYn_9jWky0q7Sp40&callback=initMap" type="text/javascript"></script>-->
+    <!--<script src="/javascripts/jquery-gmaps-latlon-picker.js"></script>-->
+    <!--<link rel="stylesheet" type="text/css" href="https://github.com/wimagguc/jquery-latitude-longitude-picker-gmaps/blob/master/css/jquery-gmaps-latlon-picker.css"/>-->
+
+</head>
+<body>
+<h1><%= title %></h1>
+
+<form action="/update?id=" method="post">
+    <label>Name: <input type="text" name="name" value="<%=name%>"></label><br>
+    <label>Categories: <input type="text" name="categories" value="<%=categories%>"></label><br>
+    <label>Latitude: <input type="text" name="latitude" value="<%=latitude%>"></label><br>
+    <label>Longitude: <input type="text" name="longitude" value="<%=longitude%>"></label><br>
+    <button type="reset">Clear</button>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
