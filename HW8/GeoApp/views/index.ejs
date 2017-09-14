@@ -44,7 +44,7 @@
         <td><%=result[i].Categories%></td>
         <td><%=result[i].Latitude%></td>
         <td><%=result[i].Longitude%></td>
-        <td><form method="post" action='/update?id=<%=result[i]._id%>'><button>Edit</button></form></td>
+        <td><form method="get" action='/update/<%=result[i]._id%>'><button>Edit</button></form></td>
         <td><form method="post" action='/delete?id=<%=result[i]._id%>'><button>Delete</button></form></td>
     </tr>
     <%}%>

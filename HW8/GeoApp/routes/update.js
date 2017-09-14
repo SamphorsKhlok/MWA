@@ -3,22 +3,26 @@ var router = express.Router();
 var ObjectId = require('mongodb').ObjectID;
 var url = require('url');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-    console.log("update");
-    var urlObj = url.parse(req.url,true);
+// router.get('/', function(req, res, next) {
+//     res.send('respond with a resource');
+// });
 
-    req.db.locations.find({_id:ObjectId(urlObj.query.id)}).toArray(function(err, items) {
+/* GET users listing. */
+router.get('/:id', function(req, res, next) {
+    console.log("update");
+    //var urlObj = url.parse(req.url,true);
+    var id = req.params.id;
+
+    req.db.locations.find({_id:ObjectId(id)}).toArray(function(err, items) {
         if(err) throw err;
         console.log(items);
-        res.render('update', { title: 'Update Location', name:items.Name, categories:items.Categories, latitude:items.Latitude, longtitude:items.Longitude });
+        res.render('update', { title: 'Update Location', data: items[0]});
     });
 });
 
 // update
-router.post('/edit', function(req, res, next) {
+router.post('/edit/:id', function(req, res, next) {
     console.log("update");
-    console.log("add");
     var categoryArr = [];
     var categoryStr = req.body.categories.split(",");
     //console.log("category is :"+categoryStr);
@@ -30,7 +34,18 @@ router.post('/edit', function(req, res, next) {
         Latitude: req.body.latitude,
         Longitude: req.body.longitude
     };
-    res.render('index', { title: 'Express' });
+
+    req.db.locations.update({_id:ObjectId(req.params.id)},{$set:{
+        Name: doc.Name,
+        Categories: doc.Categories,
+        Latitude:doc.Latitude,
+        Longitude:doc.Longitude,
+
+    }},(err,doc)=>{
+        if(err) throw err;
+        console.log("success update " + doc);
+    });
+    res.redirect("/");
 });
 
 module.exports = router;
