@@ -32,7 +32,7 @@ app.use((req,res,next) =>{
     var db = mongo.db("mongodb://localhost:27017/SamDB", {native_parser:true});
     db.bind('locations');
     req.db = db;
-    console.log("connection");
+    //console.log("connection");
     next();
     db.close();
 });

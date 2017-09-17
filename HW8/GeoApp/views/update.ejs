@@ -16,8 +16,8 @@
 <form action="/update/edit/<%=data._id%>" method="post">
     <label>Name: <input type="text" name="name" value="<%=data.Name%>"></label><br>
     <label>Categories: <input type="text" name="categories" value="<%=data.Categories%>"></label><br>
-    <label>Latitude: <input type="text" name="latitude" value="<%=data.Latitude%>"></label><br>
-    <label>Longitude: <input type="text" name="longitude" value="<%=data.Longitude%>"></label><br>
+    <label>Latitude: <input type="text" name="latitude" value="<%=data.Location[0]%>"></label><br>
+    <label>Longitude: <input type="text" name="longitude" value="<%=data.Location[1]%>"></label><br>
     <button type="reset">Clear</button>
     <button type="submit">Update</button>
 </form>

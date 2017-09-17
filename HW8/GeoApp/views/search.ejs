@@ -5,10 +5,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-<h1><%= title %></h1>
-<form action="/search" method="post">
+<h1><%= title %>(<a href="/">Index Page</a>)</h1>
+<form action="/search/search" method="post">
     <label>Name: <input type="text" name="name"></label><br>
     <label>Categories:* <input type="text" name="categories"></label><br>
+    <button type="button" id="btnLocation">Get My Location</button><br>
+    <label>Latitude: <input type="text" name="latitude"></label><br>
+    <label>Longitude: <input type="text" name="longitude"></label><br>
     <button type="reset">Clear</button>
     <button type="submit">Search</button>
 </form>
@@ -26,8 +29,8 @@
     <tr>
         <td><b><%=result[i].Name%></b></td>
         <td><%=result[i].Categories%></td>
-        <td><%=result[i].Latitude%></td>
-        <td><%=result[i].Longitude%></td>
+        <td><%=result[i].Location[0]%></td>
+        <td><%=result[i].Location[1]%></td>
         <td><form method="get" action='/update/<%=result[i]._id%>'><button>Edit</button></form></td>
         <td><form method="post" action='/delete?id=<%=result[i]._id%>'><button>Delete</button></form></td>
     </tr>

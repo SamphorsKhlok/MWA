@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<h1><%= title %></h1>
+<h1><%= title %> (<a href="/search">Search Page</a>)</h1>
 <!--<h3>Location Form</h3>-->
 <!--<fieldset class="gllpLatlonPicker" id="custom_id">-->
     <!--<input type="text" class="gllpSearchField">-->
@@ -42,8 +42,8 @@
     <tr>
         <td><b><%=result[i].Name%></b></td>
         <td><%=result[i].Categories%></td>
-        <td><%=result[i].Latitude%></td>
-        <td><%=result[i].Longitude%></td>
+        <td><%=result[i].Location[0]%></td>
+        <td><%=result[i].Location[1]%></td>
         <td><form method="get" action='/update/<%=result[i]._id%>'><button>Edit</button></form></td>
         <td><form method="post" action='/delete?id=<%=result[i]._id%>'><button>Delete</button></form></td>
     </tr>
