@@ -23,27 +23,30 @@ router.post('/search', function(req, res, next) {
 
     var search = {
         Categories: categoryArr || [],
-        Name: req.body.name || null,
+        Name: req.body.name || '',
         Location: [req.body.latitude || 0.0,req.body.longitude|| 0.0]
     };
 
-    var lat = search.Location[0];
-    var lng = search.Location[1];
+    console.log(search);
+
+    var lat = parseFloat(search.Location[0]);
+    var lng = parseFloat(search.Location[1]);
 
     req.db.locations.createIndex({"Location": '2d'});
 
     //nearest top 10
-    req.db.locations.find({"Location": {$near:[lat,lng]}
-        //Name: {$in:[search.Name,""]},
-        //Categories: search.Categories,
+    var cursor = req.db.locations.find({"Location": {$near:[lat,lng]}
+        Name: {$in:[search.Name,""]},
+        Categories: search.Categories
+    });
 
-    },(err,docs)=>{
-        if(err) throw err;
-        docs.forEach(function (item) {
-            console.log(item);
-        })
 
-        res.render('search', { title: 'Search Location', result: docs });
+    cursor.each((err,item)=>{
+        if(err) throw "Error is : " + err;
+
+        console.log(item);
+
+        //res.render('search', { title: 'Search Location', result: docs });
     });
 
     //nearest within max distance

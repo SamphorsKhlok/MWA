@@ -3,15 +3,32 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 <h1><%= title %>(<a href="/">Index Page</a>)</h1>
+<script>
+    var result = document.getElementById("result");
+    function getLocation() {
+        navigator.geolocation.getCurrentPosition(showPosition, fail);
+    }
+
+    function showPosition(position) {
+        //console.log(position.coords.latitude,position.coords.longitude);
+        $("#latitude").val(position.coords.latitude);
+        $("#longitude").val(position.coords.longitude);
+    }
+
+    function fail(error){
+        result.innerHTML = "Geolocation is not supported by this browser." + error;
+    }
+</script>
 <form action="/search/search" method="post">
     <label>Name: <input type="text" name="name"></label><br>
     <label>Categories:* <input type="text" name="categories"></label><br>
-    <button type="button" id="btnLocation">Get My Location</button><br>
-    <label>Latitude: <input type="text" name="latitude"></label><br>
-    <label>Longitude: <input type="text" name="longitude"></label><br>
+    <button type="button" onclick="getLocation()">Get My Location</button><p id="result"></p><br>
+    <label>Latitude: <input type="text" name="latitude" id="latitude"></label><br>
+    <label>Longitude: <input type="text" name="longitude" id="longitude"></label><br>
     <button type="reset">Clear</button>
     <button type="submit">Search</button>
 </form>
