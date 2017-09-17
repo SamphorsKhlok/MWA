@@ -1,0 +1,7 @@
+to improve the performance, indexing will be helpful.Here are the field to be indexed.
+db.books.createIndex({"ISBN":1, "tags":1});
+db.books.createIndex({"ISBN":1, "author":1});
+db.books.createIndex({"ISBN":1, "students":1});
+
+the index will be stored in the memory for fast processing. in case of the allocated memory
+is full, it will be stored in the hard disk.

@@ -39,7 +39,10 @@ router.post('/search', function(req, res, next) {
 
     },(err,docs)=>{
         if(err) throw err;
-        console.log(docs);
+        docs.forEach(function (item) {
+            console.log(item);
+        })
+
         res.render('search', { title: 'Search Location', result: docs });
     });
 
