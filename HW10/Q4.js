@@ -9,7 +9,7 @@ class Person {
         return this._firstName;
     }
     set firstName(value) {
-        this._firstName = value;
+        this._firstName = value.toUpperCase();
     }
 }
 let person = new Person();

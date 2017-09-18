@@ -9,7 +9,7 @@ class Person {
     }
 
     set firstName(value: string){
-        this._firstName = value;
+        this._firstName = value.toUpperCase();
     }
 }
 
