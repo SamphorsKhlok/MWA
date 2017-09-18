@@ -26,13 +26,13 @@ router.post('/edit/:id', function(req, res, next) {
     var doc = {
         Name: req.body.name,
         Categories: categoryArr,
-        Location: [req.body.latitude,req.body.longitude]
+        Location: [req.body.longitude,req.body.latitude]
     };
 
     req.db.locations.update({_id:ObjectId(req.params.id)},{$set:{
         Name: doc.Name,
         Categories: doc.Categories,
-        Location: [doc.Location[0],doc.Location[1]]
+        Location: new Array(Number(doc.Location[0]),Number(doc.Location[1]))
     }},(err,doc)=>{
         if(err) throw err;
         console.log("success update " + doc);

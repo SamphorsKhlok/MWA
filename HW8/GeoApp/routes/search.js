@@ -17,36 +17,45 @@ router.get('/', function(req, res, next) {
 // search nearest location
 router.post('/search', function(req, res, next) {
     console.log("search");
-    var categoryArr = [];
-    var categoryStr = req.body.categories.split(",");
-    categoryStr.forEach((item)=> categoryArr.push(item));
+    //single category only
+    // var categoryArr = [];
+    // var categoryStr = req.body.categories.split(",");
+    // categoryStr.forEach((item)=> categoryArr.push(item));
 
     var search = {
-        Categories: categoryArr || [],
-        Name: req.body.name || '',
-        Location: [req.body.latitude || 0.0,req.body.longitude|| 0.0]
+        Category: req.body.categories || "",
+        Name: req.body.name,
+        Location: [req.body.longitude|| 0.0, req.body.latitude || 0.0]
     };
 
-    console.log(search);
+    var query = {};
 
-    var lat = parseFloat(search.Location[0]);
-    var lng = parseFloat(search.Location[1]);
+    if(search.Category == '' || search.Location == [0.0,0.0]){
+        res.render('error', { message: "Error : incomplete search inputs", error: {status: "normal", stack: "please check your inputs again"}});
+    }
+
+    console.log(search);
+    //need to convert to numbeer format properly or else it will be string and MongoDB cannot process string
+    var coord = new Array(Number(search.Location[0]), Number(search.Location[1]));
+
+    //to handle name is optional
+    if(search.Name){
+        query = {Location: {$near:coord},
+            Name: search.Name,
+            Categories: search.Category
+        }
+    }else{
+        query = {Location: {$near:coord},
+            Categories: search.Category
+        }
+    }
 
     req.db.locations.createIndex({"Location": '2d'});
 
-    //nearest top 10
-    var cursor = req.db.locations.find({"Location": {$near:[lat,lng]}
-        Name: {$in:[search.Name,""]},
-        Categories: search.Categories
-    });
-
-
-    cursor.each((err,item)=>{
+    req.db.locations.find(query).limit(3).toArray((err,docs)=>{
         if(err) throw "Error is : " + err;
-
-        console.log(item);
-
-        //res.render('search', { title: 'Search Location', result: docs });
+        //console.log(docs);
+        res.render('search', { title: 'Search Location', result: docs });
     });
 
     //nearest within max distance
