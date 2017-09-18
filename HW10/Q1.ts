@@ -2,7 +2,7 @@ import {Account} from "./Account";
 
 class Person {
     name: string = "Asaad";
-    bankAccount: Account;
+    bankAccount: Account = new Account();
     hobbies: string[] = ["Violin","Cooking"];
 }
 
