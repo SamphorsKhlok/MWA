@@ -6,7 +6,7 @@ import { Component, NgModule } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  counter : number;
+  counter : number = 0;
   title = 'App Component';
   ComponentCounterValue:number;
 

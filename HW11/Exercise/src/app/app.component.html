@@ -3,7 +3,7 @@
   <h2>
     {{title}}
   </h2>
-  <label>Set counter : <input [(ngModel)]="counter"/></label>
+  <label>Set counter : <input value="" (keyup)="counter=$event.target.value"/></label>
   <p>ComponentCounterValue : {{ComponentCounterValue}}</p>
   <br>
   <app-counter [paraCounter]="counter" [paraCounter2]="ComponentCounterValue" (counterChange)="showOutputData($event)" ></app-counter>

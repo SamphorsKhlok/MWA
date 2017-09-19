@@ -6,13 +6,13 @@ import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output} from
   template:`
     <div class="orange">
       <h3>{{title}}</h3>
+      <p>Parent Input : {{paraCounter}}</p>
       <button (click)="getParentInput()">Get Parent Input</button>
       <div style="padding: 10px">
         <button (click)="decrease()">  -  </button>
         <label>{{counterValue}}</label>
         <button (click)="increase()">  +  </button>
       </div>
-      <p>Parent Input : {{paraCounter}}</p>
     </div>
   `,
   styles:['div.orange {border: solid 1px orange; margin: 5px}'],
@@ -20,7 +20,7 @@ import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output} from
 })
 export class CounterComponent implements OnInit {
 
-  counterValue:number;
+  counterValue:number = 0;
   title: string = "Counter Component";
   @Input() paraCounter;
   @Input() paraCounter2;
@@ -36,11 +36,13 @@ export class CounterComponent implements OnInit {
 
   decrease(){
     this.counterValue = this.counterValue - 1;
+    //console.log("After decrease " + this.counterValue);
     this.emitData();
   }
 
   increase(){
-    this.counterValue = this.counterValue + 1;;
+    this.counterValue = this.counterValue + 1;
+    //console.log("after increase " + this.counterValue);
     this.emitData();
   }
 
@@ -54,6 +56,7 @@ export class CounterComponent implements OnInit {
   //     this.counterValue = parseInt(this.paraCounter);
   //   }
   // }
+
 
   emitData(){
     this.counterChange.emit(this.counterValue);
