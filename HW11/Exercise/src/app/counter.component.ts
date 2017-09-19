@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -7,7 +7,6 @@ import { Component, OnInit, ViewEncapsulation, Input, EventEmitter, Output} from
     <div class="orange">
       <h3>{{title}}</h3>
       <p>Parent Input : {{paraCounter}}</p>
-      <button (click)="getParentInput()">Get Parent Input</button>
       <div style="padding: 10px">
         <button (click)="decrease()">  -  </button>
         <label>{{counterValue}}</label>
@@ -22,7 +21,16 @@ export class CounterComponent implements OnInit {
 
   counterValue:number = 0;
   title: string = "Counter Component";
-  @Input() paraCounter;
+
+  private _paraCounter;
+  @Input() set paraCounter(value: number) {
+    this.counterValue = this._paraCounter = value;
+  }
+
+  get paraCounter(): number{
+    return this._paraCounter;
+  }
+
   @Input() paraCounter2;
   @Output() counterChange = new EventEmitter();
 
@@ -35,28 +43,16 @@ export class CounterComponent implements OnInit {
   }
 
   decrease(){
-    this.counterValue = this.counterValue - 1;
+    this.counterValue--;
     //console.log("After decrease " + this.counterValue);
     this.emitData();
   }
 
   increase(){
-    this.counterValue = this.counterValue + 1;
+    this.counterValue++;
     //console.log("after increase " + this.counterValue);
     this.emitData();
   }
-
-  getParentInput(){
-    this.counterValue = parseInt(this.paraCounter);
-  }
-
-  // ngOnChanges(){
-  //   console.log("change detected");
-  //   if(this.paraCounter){
-  //     this.counterValue = parseInt(this.paraCounter);
-  //   }
-  // }
-
 
   emitData(){
     this.counterChange.emit(this.counterValue);
