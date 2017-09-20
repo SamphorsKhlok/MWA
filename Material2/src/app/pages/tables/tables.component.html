@@ -1,0 +1,79 @@
+<div class="content" fxLayout="column" fxLayout.sm="column" fxLayoutGap="16px">
+
+
+  <!-- card-1 -->
+  <md-card fxFlex="100" class="example-card">
+    <md-tab-group style="min-height:500px;" (selectChange)="onTabClick($event)">
+
+      <md-tab label="PREVIEW" class="tab-preview">
+        <div style=" padding:20px;">
+
+          <md-card>
+            <table>
+
+              <thead>
+                <tr>
+                  <th style="width:30px;"><md-checkbox [(ngModel)]="selectedAll" (change)="statusCheckBox()"></md-checkbox></th>
+                  <th>Dessert (100g serving)</th>
+                  <th>Calories</th>
+                  <th>Fat(g)</th>
+                  <th>Carbs(g)</th>
+                </tr>
+              </thead>
+
+              <!--<tfoot>
+                <tr>
+                  <td>Sum</td>
+                  <td>$180</td>
+                  <td>$180</td>
+                  <td>$180</td>
+                </tr>
+              </tfoot>-->
+
+              <tbody>
+
+                <tr *ngFor="let item of tableData" >
+                  <td><md-checkbox [(ngModel)]="item.state" color="primary"></md-checkbox></td>
+                  <td>{{ item.food }}</td> 
+                  <td>{{ item.calories }}</td>
+                  <td>{{ item.fat }}</td>
+                  <td>{{ item.carbs }}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </md-card>
+
+        </div>
+      </md-tab>
+
+      <md-tab label="HTML">
+        <pre> 
+        <code class="html">
+          {{ html_exp_1 }}
+        </code>
+      </pre>
+      </md-tab>
+
+      <md-tab label="TS">
+        <pre>
+        <code class="javascript">
+          {{ javascript_exp_1 }} 
+        </code>
+      </pre>
+      </md-tab>
+
+      <md-tab label="CSS">
+        <pre>
+        <code class="css">
+          {{ css_exp_1 }} 
+        </code> 
+      </pre>
+      </md-tab>
+
+    </md-tab-group>
+  </md-card>
+
+
+</div>

@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*@import "../node_modules/ng2-flex-layout/dist/ng2-flex-layout.css";*/
+
+
+body {
+  margin: 0px;
+
+  font-family: 'Roboto', sans-serif;	
+}
+
+*{
+  -webkit-font-smoothing: antialased;
+  -moz-osx-font-smoothing: antialased;
+}
+
+
+
+
+
+
+
+
+
+.content{
+  padding: 10px;
+  /*min-height: 500px;*/
+}
+md-tab-group{
+  /*background: blue;*/
+}
+
+
+.tab-preview{
+  padding: 20px;
+  background: red;
+  min-height: 200px;
+}
+
+code{
+  min-height: 300px;
+}
+
+pre{
+  padding: 0px;
+  margin: 0px;
+}

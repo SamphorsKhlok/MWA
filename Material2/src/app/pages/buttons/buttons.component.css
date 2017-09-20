@@ -1,0 +1,23 @@
+.content{
+  padding: 10px;
+  /*min-height: 500px;*/
+}
+md-tab-group{
+  /*background: blue;*/
+}
+
+
+.tab-preview{
+  padding: 20px;
+  background: red;
+  min-height: 200px;
+}
+
+code{
+  min-height: 300px;
+}
+
+pre{
+  padding: 0px;
+  margin: 0px;
+}
