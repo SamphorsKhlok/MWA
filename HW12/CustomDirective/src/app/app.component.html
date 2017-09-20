@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<app-arr-comp [elements]="arrElement"></app-arr-comp>
+<h4>Upper directive : li to uppercase</h4>
+<ul>
+  <li> item 1</li>
+  <li upper>item 2</li>
+  <li upper>item 3</li>
+  <li> item 4</li>
+</ul>
+<h4>Myvisibility directive : hide/show element</h4>
+<ul>
+  <li [myvisibility]="true">item 1</li>
+  <li [myvisibility]="false">item 2</li>
+  <li [myvisibility]="true">item 3</li>
+  <li [myvisibility]="true">item 4</li>
+</ul>
+<h4>My color directive : show an array of colors</h4>
+<div mycolor (emitter)="dataHandler($event)">click me</div>
+<div *ngIf="color">current color @parent is : {{color}}</div>
+
+
+
+
