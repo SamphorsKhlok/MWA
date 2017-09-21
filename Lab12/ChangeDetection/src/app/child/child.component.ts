@@ -9,7 +9,7 @@ import {Person} from '../person';
     <br>
     `,
   inputs: ['person'],
-  //changeDetection: ChangeDetectionStrategy.OnPush 
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponent  {
   person: Person;
