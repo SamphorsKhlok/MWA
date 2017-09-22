@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<!--<div *ngFor="let post of posts | mypiper:pipeargs">-->
+  <!--{{post}}-->
+  <!--&lt;!&ndash;<app-mypost [data]="post"></app-mypost>&ndash;&gt;-->
+<!--</div>-->
+<input (input)="pipeargs=$event.target.value" value="">
+<div *ngFor="let post of posts | mypiper:pipeargs">
+  <app-mypost [data]="post"></app-mypost>
+</div>
+
+
+
