@@ -18,7 +18,8 @@
              name="email"
              required
              pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-             #email="ngModel">
+             #email="ngModel"
+      >
       <div *ngIf="!email.valid">
         Invalid email
       </div>

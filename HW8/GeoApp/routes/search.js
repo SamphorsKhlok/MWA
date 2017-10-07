@@ -10,6 +10,12 @@ router.get('/', function(req, res, next) {
         if(err) throw err;
         //console.log(items);
         res.render('search', { title: 'Search Location', result: items });
+        let obj = {
+            name: "ting tong",
+            title: "cddc"
+        }
+
+        res.send();
     });
 
 });

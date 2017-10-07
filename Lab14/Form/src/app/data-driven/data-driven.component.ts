@@ -87,11 +87,11 @@ export class DataDrivenComponent {
   }
 
   trace(){
-    console.log((<FormGroup>this.myForm.controls['userData']).controls['email']);
+    //console.log((<FormGroup>this.myForm.controls['userData']).controls['email']);
   }
 
   traceUsername(){
-    console.log((<FormGroup>this.myForm.controls['userData']).controls['username'].errors);
+    //console.log((<FormGroup>this.myForm.controls['userData']).controls['username'].errors);
   }
 
 }
