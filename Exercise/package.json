@@ -21,8 +21,17 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "adm-zip": "^0.4.13",
     "core-js": "^2.4.1",
+    "fresh": "^0.5.2",
+    "handlebars": "^4.0.12",
+    "hoek": "^6.1.2",
+    "http-signature": "^1.2.0",
+    "mime": "^2.4.0",
+    "parsejson": "0.0.3",
     "rxjs": "^5.4.2",
+    "sshpk": "^1.16.0",
+    "url-parse": "^1.4.4",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
