@@ -32,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/Material2/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="90" column="33" lean-forward="true" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+              <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -41,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/Angular4Material2Starter/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -50,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/Angular4Material2Starter/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="98">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -59,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/Exercise/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/Exercise/package-lock.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
-              <caret line="4461" column="14" selection-start-line="4461" selection-start-column="9" selection-end-line="4461" selection-end-column="14" />
+              <caret line="3377" column="23" selection-start-line="3377" selection-start-column="9" selection-end-line="3377" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -102,6 +102,8 @@
       <find>GuardComponent</find>
       <find>webpack</find>
       <find>sshpk</find>
+      <find>&quot;sshpk&quot;</find>
+      <find>http-signature</find>
     </findStrings>
     <replaceStrings>
       <replace>restaurants</replace>
@@ -310,15 +312,16 @@
       <workItem from="1522188011284" duration="457000" />
       <workItem from="1522380824188" duration="18000" />
       <workItem from="1522426031859" duration="174000" />
-      <workItem from="1546636602338" duration="1721000" />
+      <workItem from="1546636602338" duration="1950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229189000" />
+    <option name="totallyTimeSpent" value="229418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" x="857" y="158" width="261" height="583" id="Project" order="0" visible="true" weight="0.22903453" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -2400,35 +2403,35 @@
     <entry file="file://$PROJECT_DIR$/Material2/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="90" column="33" lean-forward="true" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+          <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Angular4Material2Starter/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Angular4Material2Starter/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Exercise/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Exercise/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="4461" column="14" selection-start-line="4461" selection-start-column="9" selection-end-line="4461" selection-end-column="14" />
+          <caret line="3377" column="23" selection-start-line="3377" selection-start-column="9" selection-end-line="3377" selection-end-column="23" />
         </state>
       </provider>
     </entry>
